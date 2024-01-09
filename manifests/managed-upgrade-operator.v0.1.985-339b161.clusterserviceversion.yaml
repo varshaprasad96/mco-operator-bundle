@@ -140,15 +140,15 @@ spec:
               labels:
                 name: managed-upgrade-operator
             spec:
-              affinity:
-                nodeAffinity:
-                  requiredDuringSchedulingIgnoredDuringExecution:
-                    nodeSelectorTerms:
-                    - matchExpressions:
-                      - key: node-role.kubernetes.io/master
-                        operator: In
-                        values:
-                        - ''
+              # affinity:
+              #   nodeAffinity:
+              #     requiredDuringSchedulingIgnoredDuringExecution:
+              #       nodeSelectorTerms:
+              #       - matchExpressions:
+              #         - key: node-role.kubernetes.io/master
+              #           operator: In
+              #           values:
+              #           - ''
               containers:
               - command:
                 - managed-upgrade-operator
@@ -184,11 +184,11 @@ spec:
                   name: trusted-ca-bundle
                   readOnly: true
               serviceAccountName: managed-upgrade-operator
-              tolerations:
-              - effect: NoSchedule
-                key: node-role.kubernetes.io/master
-              - effect: NoExecute
-                key: node-role.kubernetes.io/master
+              # tolerations:
+              # - effect: NoSchedule
+              #   key: node-role.kubernetes.io/master
+              # - effect: NoExecute
+              #   key: node-role.kubernetes.io/master
               volumes:
               - configMap:
                   defaultMode: 420
